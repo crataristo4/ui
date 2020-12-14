@@ -32,7 +32,6 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
           SizedBox(
             height: 24,
           ),
-
           Container(
             height: 150,
             width: double.infinity,
@@ -64,33 +63,8 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
             ),
           ),
 
-          /*  Container(
-            child: ListView.builder(
-              itemCount: categories.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        width : 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: shadowList,
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Image.asset(categories[index]["iconPath"],),
-                      ),
-                      Text(categories[index]["name"])
-                    ],
-                  ),
-                );
-              },
-
-            ),
-          ),*/
-
-          //buildPetList(),
+          buildPetsItem(),
+          // buildPetList(),
         ],
       ),
     );
@@ -203,32 +177,54 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
   buildPetsItem() {
     return Container(
       height: 150,
+      width: double.infinity,
       child: ListView.builder(
         shrinkWrap: true,
+        itemCount: categories.length,
+        scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Container(
+            margin: EdgeInsets.all(12),
+            height: 100,
+            width: 100,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: shadowList,
+                borderRadius: BorderRadius.circular(8)),
             child: Column(
               children: [
                 Container(
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      boxShadow: shadowList,
-                      borderRadius: BorderRadius.circular(8)),
+                  height: 100,
+                  width: 100,
                   child: Image.asset(categories[index]["iconPath"]),
                 ),
-                Text(categories[index]["name"])
+                Text(categories[index]["name"]),
               ],
             ),
           );
         },
-        itemCount: categories.length,
-        scrollDirection: Axis.horizontal,
       ),
     );
   }
 
   buildPetList() {
     List<Pets> petsList = Pets().petsList;
+
+    return Container(
+      height: 150,
+      width: double.infinity,
+      child: ListView.builder(
+        itemCount: categories.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          Pets newPet = petsList[index];
+          return PetItems(
+            pets: newPet,
+          );
+        },
+      ),
+    );
+
     return ListView.builder(
       itemBuilder: (context, index) {
         Pets newPet = petsList[index];
