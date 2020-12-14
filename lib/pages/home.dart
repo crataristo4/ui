@@ -26,7 +26,9 @@ class _HomePageState extends State<HomePage> {
               Icons.arrow_back_ios,
               color: Colors.grey,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
         backgroundColor: Colors.white,
         actions: [
           IconButton(
