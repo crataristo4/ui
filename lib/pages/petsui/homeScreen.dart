@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:ui/config/configuration.dart';
+import 'package:ui/widgets/buildPetItem.dart';
+import 'package:ui/widgets/buildSearchItem.dart';
+import 'package:ui/widgets/buildStackedPage.dart';
 
 class PetsHomeScreen extends StatefulWidget {
   @override
@@ -30,24 +32,31 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
           SizedBox(
             height: 24,
           ),
-          buildSearchItem(),
+          //buildSearchItem(),
+          BuildSearchItem(),
           SizedBox(
             height: 24,
           ),
-         
-          buildPetsItem(),
+
+          BuildPetsItem(),
 
           SizedBox(
             height: 12,
           ),
 
-          buildStackedPage(),
-          // buildPetList(),
+          BuildStackedPage(
+            petImage: "assets/images/a2.png",
+            type: "Ascension",
+            description: "German ascension wild dog",
+            time: "6 hours ago",
+            location: "Fourth avenue , green street",
+          ),
         ],
       ),
     );
   }
 
+  //header
   buildHeader() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,229 +124,5 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
     );
   }
 
-  buildSearchItem() {
-    return Container(
-        height: 150,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(32), topLeft: Radius.circular(32)),
-            color: Colors.grey[300]),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 16,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-              ),
-              margin: EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: IconButton(
-                      icon: Icon(Icons.search),
-                      onPressed: () {},
-                    ),
-                  ),
-                  Text("Search a pet to adopt"),
-                  IconButton(icon: Icon(Icons.auto_awesome), onPressed: () {})
-                ],
-              ),
-            ),
-          ],
-        ));
-  }
 
-  buildPetsItem() {
-    return Container(
-      height: 150,
-      width: double.infinity,
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: categories.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.all(12),
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: shadowList,
-                borderRadius: BorderRadius.circular(8)),
-            child: Column(
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  child: Image.asset(categories[index]["iconPath"]),
-                ),
-                Text(categories[index]["name"]),
-              ],
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  buildPetList() {
-    List<Pets> petsList = Pets().petsList;
-
-    return Container(
-      height: 150,
-      width: double.infinity,
-      child: ListView.builder(
-        itemCount: categories.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          Pets newPet = petsList[index];
-          return PetItems(
-            pets: newPet,
-          );
-        },
-      ),
-    );
-  }
-
-  buildStackedPage() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-      height: 250,
-      child: Row(
-        children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  decoration: BoxDecoration(
-                    boxShadow: shadowList,
-                    color: Colors.blueGrey[300],
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-                Align(child: Image.asset("assets/images/a2.png"))
-              ],
-            ),
-          ),
-          Expanded(
-              child: Container(
-            height: 200,
-            margin: EdgeInsets.only(top: 40, bottom: 20),
-            decoration: BoxDecoration(
-              boxShadow: shadowList,
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(16),
-                  bottomRight: Radius.circular(16)),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        "Ascension",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Icon(Icons.animation),
-                    ),
-                  ],
-                ),
-                Divider(
-                  height: 2,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16.0, right: 8.0),
-                  child: Expanded(
-                      child: Text("German ascension wild dog",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold))),
-                ),
-                Row(
-                  children: [
-                    Padding(
-                        padding: EdgeInsets.only(left: 8),
-                        child: Icon(Icons.access_time, color: Colors.grey)),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8.0, left: 4, right: 8, bottom: 8),
-                      child: Text("6 hours ago"),
-                    ),
-                  ],
-                ),
-                Divider(
-                  height: 3,
-                ),
-                Row(
-                  children: [
-                    Padding(
-                        padding: EdgeInsets.only(left: 8),
-                        child: Icon(Icons.location_on, color: Colors.grey)),
-                    Expanded(
-                        child: Text("Fourth avenue , green street",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold)))
-                  ],
-                )
-              ],
-            ),
-          ))
-        ],
-      ),
-    );
-  }
-}
-
-class PetItems extends StatelessWidget {
-  final Pets pets;
-
-  PetItems({this.pets});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        width: 100,
-        height: 100,
-        child: Column(
-          children: [
-            Image.asset(
-              pets.image,
-              width: 100,
-              height: 100,
-            ),
-            Text(pets.name)
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Pets {
-  final name;
-  final image;
-
-  Pets({this.name, this.image});
-
-  List<Pets> petsList = [
-    Pets(name: "Dog", image: "assets/images/a.jpg"),
-    Pets(name: "Rabbit", image: "assets/images/a8.jpg"),
-    Pets(name: "Foul", image: "assets/images/a5.jpg"),
-    Pets(name: "Monkey", image: "assets/images/a6.jpg")
-  ];
 }
