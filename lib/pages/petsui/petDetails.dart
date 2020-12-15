@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ui/config/constants.dart';
 
 class PetDetails extends StatefulWidget {
@@ -58,7 +59,7 @@ class _PetDetailsState extends State<PetDetails> {
                         ),
                         Padding(
                           padding:
-                          const EdgeInsets.only(left: 16.0, right: 8.0),
+                              const EdgeInsets.only(left: 16.0, right: 8.0),
                           child: Expanded(
                               child: Text(widget.description,
                                   style: TextStyle(
@@ -98,8 +99,8 @@ class _PetDetailsState extends State<PetDetails> {
                                     child: Text(widget.location,
                                         style: TextStyle(
                                             fontSize: 16,
-                                        fontWeight: FontWeight.bold)),
-                              ))
+                                            fontWeight: FontWeight.bold)),
+                                  ))
                             ],
                           ),
                         )
@@ -112,6 +113,9 @@ class _PetDetailsState extends State<PetDetails> {
 
             ///displays users details
             buildUserDetails(),
+
+            ///displays the footer
+            buildFooter(),
           ],
         ),
       ),
@@ -122,11 +126,10 @@ class _PetDetailsState extends State<PetDetails> {
     return Container(
       height: 450,
       decoration: BoxDecoration(
-        color: Colors.grey[400],
+        color: Colors.grey.withOpacity(0.2),
       ),
       child: Stack(
         children: [
-
           ///The two containers has the back arrow item and menu at the right
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
@@ -241,17 +244,79 @@ class _PetDetailsState extends State<PetDetails> {
                   )
                 ],
               ),
-
-              SizedBox(height: 8,),
-
+              SizedBox(
+                height: 8,
+              ),
               Container(
                 margin: EdgeInsets.only(right: 16, left: 16, bottom: 16),
-                child: Text(Constants.dummy, textAlign: TextAlign.justify,
-                  style: TextStyle(color: Colors.grey[700]),),
+                child: Text(
+                  Constants.dummy,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(color: Colors.grey[700]),
+                ),
               )
-
             ],
           ),
         ));
+  }
+
+  buildFooter() {
+    return Container(
+      height: 100,
+      margin: EdgeInsets.only(top: 16),
+      decoration: BoxDecoration(
+          color: Colors.grey.withOpacity(0.2),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(48), topRight: Radius.circular(48))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 32),
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 30,
+                      color: Colors.green[900],
+                      offset: Offset(3, 5))
+                ],
+                color: Colors.green[900],
+                borderRadius: BorderRadius.circular(16)),
+            child: Icon(
+              Icons.favorite_border,
+              color: Colors.grey,
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    blurRadius: 30,
+                    color: Colors.grey[900],
+                    offset: Offset(3, 5))
+              ],
+            ),
+            margin: EdgeInsets.symmetric(horizontal: 32),
+            height: 50,
+            child: RaisedButton.icon(
+              icon: Icon(
+                Icons.call,
+                color: Colors.white,
+              ),
+              color: Colors.green[900],
+              onPressed: () {},
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              label: Text(
+                "Contact me",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

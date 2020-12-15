@@ -1,8 +1,9 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:ui/pages/home.dart';
 import 'package:ui/pages/petsui/petsHomePage.dart';
 import 'package:ui/widgets/button.dart';
+
+import 'file:///D:/lenovo/talent_ui/lib/pages/travelui/home.dart';
 
 class HomeButtons extends StatelessWidget {
   @override
@@ -26,6 +27,11 @@ class HomeButtons extends StatelessWidget {
           }),
 
           MyButton().buildButton("Pets ui", Colors.white, Colors.amber, () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => PetsHome()));
+          }),
+
+          MyButton().buildButton("Travel ui", Colors.white, Colors.amber, () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => PetsHome()));
           }),
