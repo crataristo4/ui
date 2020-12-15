@@ -10,7 +10,7 @@ final List<Hotel> hotelList = [
   Hotel(
       imageUrl: "assets/images/h.jpg",
       name: "Van Ike Hotel",
-      address: "Green Street No. 4 avenue",
+      address: "Green Street ",
       price: 500),
   Hotel(
       imageUrl: "assets/images/h1.jpg",

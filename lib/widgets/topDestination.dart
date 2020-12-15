@@ -18,6 +18,7 @@ class TopDestination extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black,
                     letterSpacing: 2.0,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -109,12 +110,13 @@ class TopDestination extends StatelessWidget {
                       ),
                       Positioned(
                         bottom: 15,
+                        left: 10,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 16),
+                              const EdgeInsets.symmetric(horizontal: 16),
                               child: Text(
                                 destination.city,
                                 style: TextStyle(
@@ -127,12 +129,13 @@ class TopDestination extends StatelessWidget {
                               children: [
                                 Icon(
                                   FontAwesomeIcons.locationArrow,
-                                  color: Colors.white,
+                                  color: Colors.white, size: 15,
                                 ),
+                                SizedBox(width: 5,),
                                 Text(
                                   destination.country,
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 24),
+                                      color: Colors.white, fontSize: 14),
                                 ),
                               ],
                             ),

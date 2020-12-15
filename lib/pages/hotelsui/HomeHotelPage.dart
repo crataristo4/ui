@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ui/widgets/hotelitems.dart';
 import 'package:ui/widgets/topDestination.dart';
 
 class HomeHotelPage extends StatefulWidget {
@@ -38,6 +39,10 @@ class _HomeHotelPageState extends State<HomeHotelPage> {
           ),
           SizedBox(height: 8),
           TopDestination(),
+          SizedBox(
+            height: 8,
+          ),
+          HotelItems(),
         ],
       )),
     );
