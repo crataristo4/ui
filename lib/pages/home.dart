@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -162,26 +161,7 @@ class _HomePageState extends State<HomePage> {
               buildCardItems("Zak", "Online", 8),
             ],
           ),
-          /*  GridView.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 2.0,
-            mainAxisSpacing: 4.0,
-            physics: ClampingScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            children: [
-              buildCard("image", "Ann", "Not available", "Request"),
-              buildCard("image", "Micheal", "Away", "Request"),
-              buildCard("image", "John", "Offline", "Request"),
-              buildCard("image", "Lexis", "Online", "Request"),
-              buildCard("image", "Ann", "Not available", "Request"),
-              buildCard("image", "Micheal", "Away", "Request"),
-              buildCard("image", "John", "Offline", "Request"),
-              buildCard("image", "Lexis", "Online", "Request"),
-              buildCard("image", "Ann", "Not available", "Request"),
 
-            ],
-          )*/
         ],
       ),
     );

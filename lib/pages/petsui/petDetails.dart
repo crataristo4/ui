@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:ui/config/constants.dart';
 
 class PetDetails extends StatefulWidget {
   final time, type, description, location, image;
@@ -25,7 +28,7 @@ class _PetDetailsState extends State<PetDetails> {
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(
-                        top: 400, right: 20, left: 20, bottom: 50),
+                        top: 400, right: 20, left: 20, bottom: 20),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16)),
@@ -55,7 +58,7 @@ class _PetDetailsState extends State<PetDetails> {
                         ),
                         Padding(
                           padding:
-                              const EdgeInsets.only(left: 16.0, right: 8.0),
+                          const EdgeInsets.only(left: 16.0, right: 8.0),
                           child: Expanded(
                               child: Text(widget.description,
                                   style: TextStyle(
@@ -91,10 +94,10 @@ class _PetDetailsState extends State<PetDetails> {
                                       color: Colors.grey)),
                               Expanded(
                                   child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(widget.location,
-                                    style: TextStyle(
-                                        fontSize: 16,
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(widget.location,
+                                        style: TextStyle(
+                                            fontSize: 16,
                                         fontWeight: FontWeight.bold)),
                               ))
                             ],
@@ -105,7 +108,10 @@ class _PetDetailsState extends State<PetDetails> {
                   ),
                 ),
               ],
-            )
+            ),
+
+            ///displays users details
+            buildUserDetails(),
           ],
         ),
       ),
@@ -120,6 +126,7 @@ class _PetDetailsState extends State<PetDetails> {
       ),
       child: Stack(
         children: [
+
           ///The two containers has the back arrow item and menu at the right
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
@@ -154,5 +161,97 @@ class _PetDetailsState extends State<PetDetails> {
         ],
       ),
     );
+  }
+
+  buildUserDetails() {
+    return Expanded(
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                  ///this row contains users photo , name and occupation
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          children: [
+
+                            ///holds the image of the user
+                            Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(
+                                    color: Colors.white,
+                                    width: 2,
+                                    style: BorderStyle.solid),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/photo.png")),
+                              ),
+                            ),
+
+                            ///users name and position
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 8.0, left: 8),
+                                  child: Text(
+                                    "Aristo crat",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 16.0, left: 8, top: 4),
+                                  child: Text(
+                                    "Artist",
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+
+                  ///This row contains the date
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(bottom: 20, right: 20),
+                        child: Text("15/12/2020",
+                            style: TextStyle(color: Colors.grey)),
+                      )
+                    ],
+                  )
+                ],
+              ),
+
+              SizedBox(height: 8,),
+
+              Container(
+                margin: EdgeInsets.only(right: 16, left: 16, bottom: 16),
+                child: Text(Constants.dummy, textAlign: TextAlign.justify,
+                  style: TextStyle(color: Colors.grey[700]),),
+              )
+
+            ],
+          ),
+        ));
   }
 }
