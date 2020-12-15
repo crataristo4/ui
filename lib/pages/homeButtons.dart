@@ -1,5 +1,6 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/pages/hotelsui/HomeHotelPage.dart';
 import 'package:ui/pages/petsui/petsHomePage.dart';
 import 'package:ui/widgets/button.dart';
 
@@ -31,9 +32,9 @@ class HomeButtons extends StatelessWidget {
                 context, MaterialPageRoute(builder: (context) => PetsHome()));
           }),
 
-          MyButton().buildButton("Travel ui", Colors.white, Colors.amber, () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => PetsHome()));
+          MyButton().buildButton("Travel ui", Colors.white, Colors.blue, () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomeHotelPage()));
           }),
 
 

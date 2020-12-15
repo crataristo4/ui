@@ -39,31 +39,31 @@ List<Activity> activityList = [
 
 List<Destination> destinationList = [
   Destination(
-      imageUrl: "assets/images/p.png",
+      imageUrl: "assets/images/p.jpg",
       city: "Florida",
       country: "United states",
       description: Constants.dummy,
       activityList: activityList),
   Destination(
-      imageUrl: "assets/images/p1.png",
+      imageUrl: "assets/images/p1.jpg",
       city: "Accra",
       country: "Ghana",
       description: Constants.dummy,
       activityList: activityList),
   Destination(
-      imageUrl: "assets/images/p2.png",
+      imageUrl: "assets/images/p2.jpg",
       city: "Kumerica",
       country: "Ghana",
       description: Constants.dummy,
       activityList: activityList),
   Destination(
-      imageUrl: "assets/images/p3.png",
+      imageUrl: "assets/images/p3.jpg",
       city: "Bono",
       country: "Ghana",
       description: Constants.dummy,
       activityList: activityList),
   Destination(
-      imageUrl: "assets/images/p.png",
+      imageUrl: "assets/images/p.jpg",
       city: "Zabzugu",
       country: "Northern Hemisphire",
       description: Constants.dummy,
