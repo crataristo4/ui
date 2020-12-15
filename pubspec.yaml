@@ -53,6 +53,7 @@ flutter:
     - assets/images/a8.jpg
     - assets/images/a9.png
     - assets/images/a2.png
+    - assets/images/ax.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

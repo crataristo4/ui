@@ -51,6 +51,14 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
             time: "6 hours ago",
             location: "Fourth avenue , green street",
           ),
+
+          BuildStackedPage(
+            petImage: "assets/images/ax.png",
+            type: "Puppy",
+            description: "Cute puppy doggie",
+            time: "2 hours ago",
+            location: "Mascot city",
+          ),
         ],
       ),
     );
