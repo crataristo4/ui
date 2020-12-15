@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:ui/config/configuration.dart';
 
@@ -32,38 +34,14 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
           SizedBox(
             height: 24,
           ),
-          Container(
-            height: 150,
-            width: double.infinity,
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: categories.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.all(12),
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: shadowList,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 100,
-                        width: 100,
-                        child: Image.asset(categories[index]["iconPath"]),
-                      ),
-                      Text(categories[index]["name"]),
-                    ],
-                  ),
-                );
-              },
-            ),
+         
+          buildPetsItem(),
+
+          SizedBox(
+            height: 12,
           ),
 
-          buildPetsItem(),
+          buildStackedPage(),
           // buildPetList(),
         ],
       ),
@@ -78,27 +56,27 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
           margin: EdgeInsets.only(top: 8, left: 20),
           child: isChanged
               ? IconButton(
-                  color: Colors.black,
-                  icon: Icon(Icons.arrow_back_ios),
-                  onPressed: () {
-                    setState(() {
-                      xOffSet = 0;
-                      yOffSet = 0;
-                      scaleFactor = 1;
-                      isChanged = false;
-                    });
-                  })
+              color: Colors.black,
+              icon: Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                setState(() {
+                  xOffSet = 0;
+                  yOffSet = 0;
+                  scaleFactor = 1;
+                  isChanged = false;
+                });
+              })
               : IconButton(
-                  color: Colors.black,
-                  icon: Icon(Icons.menu),
-                  onPressed: () {
-                    setState(() {
-                      xOffSet = 230;
-                      yOffSet = 150;
-                      scaleFactor = 0.8;
-                      isChanged = true;
-                    });
-                  }),
+              color: Colors.black,
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                setState(() {
+                  xOffSet = 230;
+                  yOffSet = 150;
+                  scaleFactor = 0.8;
+                  isChanged = true;
+                });
+              }),
         ),
         Column(
           children: [
@@ -127,7 +105,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
             child: ClipOval(
                 clipBehavior: Clip.antiAlias,
                 child: Image.asset(
-                  "assets/images/a2.jpg",
+                  "assets/images/a9.png",
                   fit: BoxFit.cover,
                 )),
             radius: 35,
@@ -224,17 +202,102 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
         },
       ),
     );
+  }
 
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        Pets newPet = petsList[index];
-        return PetItems(
-          pets: newPet,
-        );
-      },
-      itemCount: petsList.length,
-      shrinkWrap: true,
-      scrollDirection: Axis.horizontal,
+  buildStackedPage() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      height: 250,
+      child: Row(
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  decoration: BoxDecoration(
+                    boxShadow: shadowList,
+                    color: Colors.blueGrey[300],
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                Align(child: Image.asset("assets/images/a2.png"))
+              ],
+            ),
+          ),
+          Expanded(
+              child: Container(
+            height: 200,
+            margin: EdgeInsets.only(top: 40, bottom: 20),
+            decoration: BoxDecoration(
+              boxShadow: shadowList,
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(16),
+                  bottomRight: Radius.circular(16)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        "Ascension",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Icon(Icons.animation),
+                    ),
+                  ],
+                ),
+                Divider(
+                  height: 2,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0, right: 8.0),
+                  child: Expanded(
+                      child: Text("German ascension wild dog",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold))),
+                ),
+                Row(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.only(left: 8),
+                        child: Icon(Icons.access_time, color: Colors.grey)),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 8.0, left: 4, right: 8, bottom: 8),
+                      child: Text("6 hours ago"),
+                    ),
+                  ],
+                ),
+                Divider(
+                  height: 3,
+                ),
+                Row(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.only(left: 8),
+                        child: Icon(Icons.location_on, color: Colors.grey)),
+                    Expanded(
+                        child: Text("Fourth avenue , green street",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold)))
+                  ],
+                )
+              ],
+            ),
+          ))
+        ],
+      ),
     );
   }
 }
