@@ -46,7 +46,7 @@ class HotelItems extends StatelessWidget {
             margin: EdgeInsets.all(8),
             padding: EdgeInsets.all(8),
             height: 150,
-            width: 250,
+            width: 300,
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
@@ -54,7 +54,7 @@ class HotelItems extends StatelessWidget {
                   bottom: 5,
                   child: Container(
                     margin: EdgeInsets.all(8),
-                    width: 220,
+                    width: 270,
                     height: 120,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.2),
@@ -105,7 +105,7 @@ class HotelItems extends StatelessWidget {
                         child: Image(
                           image: AssetImage(hotel.imageUrl),
                           height: 180,
-                          width: 180,
+                          width: 240,
                           fit: BoxFit.cover,
                         ),
                       ),
