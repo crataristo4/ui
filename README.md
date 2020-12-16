@@ -4,7 +4,7 @@ This page shows the User interfaces of the various pages that are designed
 
 ## Pages and Interface
 <p align="middle">
-  <img src="../ui/screens/1.png" height = "600" width="300"/>
+  <img src="../ui/tree/master/screens/1.png" height = "600" width="300"/>
 </p>
 
 <p align="middle">
