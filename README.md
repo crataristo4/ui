@@ -16,10 +16,6 @@ This page shows the User interfaces of the various pages that are designed
 </p>
 
 <p align="middle">
-  <img src="../master/screens/4.png" height = "600" width="300"/>
-</p>
-
-<p align="middle">
   <img src="../master/screens/5.png" height = "600" width="300"/>
 </p>
 
@@ -34,6 +30,12 @@ This page shows the User interfaces of the various pages that are designed
 <p align="middle">
   <img src="../master/screens/8.png" height = "600" width="300"/>
 </p>
+
+
+<p align="middle">
+  <img src="../master/screens/4.png" height = "600" width="300"/>
+</p>
+
 
 <p align="middle">
   <img src="../master/screens/9.png" height = "600" width="300"/>
