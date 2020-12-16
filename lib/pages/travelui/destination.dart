@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui/models/travelui/destination.dart';
 
@@ -151,14 +152,8 @@ class _DestinationScreenState extends State<DestinationScreen> {
     return Container(
         padding: EdgeInsets.only(left: 10),
         margin: EdgeInsets.only(top: 30),
-        height: MediaQuery
-            .of(context)
-            .size
-            .height / 2,
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
+        height: MediaQuery.of(context).size.height / 2,
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(40), color: Colors.white),
         child: ListView.builder(
@@ -166,11 +161,8 @@ class _DestinationScreenState extends State<DestinationScreen> {
             return Stack(
               children: [
                 Container(
-                  height: 170,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .height,
+                  height: 180,
+                  width: MediaQuery.of(context).size.height,
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -182,8 +174,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           offset: Offset(0, 2),
                         )
                       ]),
-
-
                 ),
 
                 ///Contains the activity details tacked on the container
@@ -193,7 +183,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       ///image
                       Container(
                         margin: EdgeInsets.only(top: 20),
@@ -228,16 +217,24 @@ class _DestinationScreenState extends State<DestinationScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+
+                                ///activity name
                                 Container(
                                   width: 100,
                                   child: Text(
                                     activityList[item].name,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16),
                                   ),
                                 ),
-                                SizedBox(width: 20,),
+                                SizedBox(
+                                  width: 20,
+                                ),
+
+                                ///price
                                 Padding(
                                   padding: const EdgeInsets.only(left: 30.0),
                                   child: Text(
@@ -247,71 +244,110 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                         fontSize: 16),
                                   ),
                                 )
-
                               ],
                             ),
 
+                            ///description
                             Padding(
                               padding: const EdgeInsets.only(top: 8.0),
-                              child: Text(activityList[item].type),
+                              child: Text(
+                                activityList[item].type,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
-                            //Text("data"),
-                            SizedBox(height: 30,),
+                            RatingBar.builder(
+                              initialRating: activityList[item].rating
+                                  .toDouble(),
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: false,
+                              itemCount: 5,
+                              itemPadding:
+                              EdgeInsets.symmetric(horizontal: 2.0),
+                              itemBuilder: (context, _) =>
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                            ),
+
+                            ///start and end time
                             Row(
                               children: [
-
-                                Container(
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                      color: Colors.green.withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(16)
-                                  ),
-                                  child: Center(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        activityList[item].startTimes[0],
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                            color: Colors.blueGrey),
+                                Column(
+                                  children: [
+                                    Text(
+                                      "Start time",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Container(
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                          color: Colors.green.withOpacity(0.3),
+                                          borderRadius:
+                                          BorderRadius.circular(16)),
+                                      child: Center(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            activityList[item].startTimes[0],
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                                color: Colors.blueGrey),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 20),
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                      color: Colors.green.withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(16)
-                                  ),
-                                  child: Center(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        activityList[item].startTimes[1],
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                            color: Colors.blueGrey),
+                                Column(
+                                  children: [
+                                    Text(
+                                      "Close time",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Container(
+                                      margin:
+                                      EdgeInsets.symmetric(horizontal: 20),
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                          color: Colors.green.withOpacity(0.3),
+                                          borderRadius:
+                                          BorderRadius.circular(16)),
+                                      child: Center(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            activityList[item].startTimes[1],
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                                color: Colors.blueGrey),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ),
                               ],
                             )
                           ],
                         ),
                       ),
-                      SizedBox(width: 10,),
-
+                      SizedBox(
+                        width: 10,
+                      ),
                     ],
                   ),
                 ),
-
-
               ],
             );
           },
@@ -319,4 +355,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
           scrollDirection: Axis.vertical,
         ));
   }
+
+  buildRating(int rating) {}
 }

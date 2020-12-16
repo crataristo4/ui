@@ -18,22 +18,22 @@ List<Activity> activityList = [
       imageUrl: "assets/images/b2.png",
       name: "Mark bower",
       type: "Tourist site",
-      rating: 5,
+      rating: 4,
       price: 250,
       startTimes: ["7:00 am", "11:00 pm"]),
   Activity(
       imageUrl: "assets/images/b1.jpg",
       name: "St Luke\'s Boomerang",
       type: "Fun based home",
-      rating: 5,
-      price: 30,
+      rating: 2,
+      price: 3000,
       startTimes: ["8:00 am", "10:30 pm"]),
   Activity(
       imageUrl: "assets/images/b.jpg",
       name: "Peter Drake\'s Yard",
       type: "Freaking jooo",
       rating: 5,
-      price: 30,
+      price: 750,
       startTimes: ["8:00 am", "5:00 pm"]),
 ];
 

@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^8.10.1
+  flutter_rating_bar: ^3.2.0+1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -62,6 +63,7 @@ flutter:
     - assets/images/b.jpg
     - assets/images/b1.jpg
     - assets/images/b2.png
+    - assets/images/rate.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
