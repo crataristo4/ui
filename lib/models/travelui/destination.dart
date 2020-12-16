@@ -28,44 +28,26 @@ List<Activity> activityList = [
       rating: 5,
       price: 30,
       startTimes: ["8:00 am", "11:00 am"]),
-  Activity(
-      imageUrl: "",
-      name: "St Paul\'s Yuks",
-      type: "Tour",
-      rating: 3,
-      price: 300,
-      startTimes: ["6:00 am", "10:00 am"]),
 ];
 
 List<Destination> destinationList = [
   Destination(
-      imageUrl: "assets/images/p.jpg",
+      imageUrl: "assets/images/b.jpg",
       city: "Florida",
       country: "United states",
       description: Constants.dummy,
       activityList: activityList),
   Destination(
-      imageUrl: "assets/images/p1.jpg",
+      imageUrl: "assets/images/b1.jpg",
       city: "Accra",
       country: "Ghana",
       description: Constants.dummy,
       activityList: activityList),
   Destination(
-      imageUrl: "assets/images/p2.jpg",
+      imageUrl: "assets/images/b2.png",
       city: "Kumerica",
       country: "Ghana",
       description: Constants.dummy,
       activityList: activityList),
-  Destination(
-      imageUrl: "assets/images/p3.jpg",
-      city: "Bono",
-      country: "Ghana",
-      description: Constants.dummy,
-      activityList: activityList),
-  Destination(
-      imageUrl: "assets/images/p.jpg",
-      city: "Zabzugu",
-      country: "Northern Hemisphire",
-      description: Constants.dummy,
-      activityList: activityList),
+
 ];

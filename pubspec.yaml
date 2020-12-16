@@ -56,16 +56,12 @@ flutter:
     - assets/images/a2.png
     - assets/images/ax.png
     - assets/images/photo.png
-    - assets/images/h.jpg
-    - assets/images/h1.jpg
-    - assets/images/h2.jpg
-    - assets/images/h3.jpg
-    - assets/images/h4.jpg
-    - assets/images/p.jpg
-    - assets/images/p1.jpg
-    - assets/images/p2.jpg
-    - assets/images/p3.jpg
-    - assets/images/p4.jpg
+    - assets/images/a11.jpg
+    - assets/images/a22.jpg
+    - assets/images/b.jpg
+    - assets/images/b1.jpg
+    - assets/images/b2.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

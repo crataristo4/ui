@@ -8,28 +8,18 @@ class Hotel {
 
 final List<Hotel> hotelList = [
   Hotel(
-      imageUrl: "assets/images/h.jpg",
+      imageUrl: "assets/images/a.jpg",
       name: "Van Ike Hotel",
       address: "Green Street ",
       price: 500),
   Hotel(
-      imageUrl: "assets/images/h1.jpg",
+      imageUrl: "assets/images/a11.jpg",
       name: "Putuu maame",
       address: "Akwaaba lane",
       price: 630),
   Hotel(
-      imageUrl: "assets/images/h2.jpg",
+      imageUrl: "assets/images/a22.jpg",
       name: "Broski Hotel",
       address: "Waakye avenue",
       price: 8200),
-  Hotel(
-      imageUrl: "assets/images/h3.jpg",
-      name: "MixinHotel",
-      address: "Hexpino Zramina",
-      price: 750),
-  Hotel(
-      imageUrl: "assets/images/h4.jpg",
-      name: "Agogo hotel",
-      address: "Norway Junction",
-      price: 1500),
 ];
