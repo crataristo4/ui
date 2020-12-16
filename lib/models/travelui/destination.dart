@@ -15,16 +15,23 @@ class Destination {
 
 List<Activity> activityList = [
   Activity(
-      imageUrl: "",
+      imageUrl: "assets/images/b2.png",
       name: "Mark bower",
-      type: "Tour",
+      type: "Tourist site",
       rating: 5,
       price: 250,
       startTimes: ["8:00 am", "11:00 am"]),
   Activity(
-      imageUrl: "",
+      imageUrl: "assets/images/b1.jpg",
       name: "St Luke\'s Boomerang",
-      type: "Tour",
+      type: "Fun based home",
+      rating: 5,
+      price: 30,
+      startTimes: ["8:00 am", "11:00 am"]),
+  Activity(
+      imageUrl: "assets/images/b.jpg",
+      name: "Peter Drake\'s Yard",
+      type: "Freaking jooo",
       rating: 5,
       price: 30,
       startTimes: ["8:00 am", "11:00 am"]),

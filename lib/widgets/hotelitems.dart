@@ -100,13 +100,16 @@ class HotelItems extends StatelessWidget {
                   ///contains the image
                   child: Stack(
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image(
-                          image: AssetImage(hotel.imageUrl),
-                          height: 180,
-                          width: 240,
-                          fit: BoxFit.cover,
+                      Hero(
+                        tag: hotel.imageUrl,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image(
+                            image: AssetImage(hotel.imageUrl),
+                            height: 180,
+                            width: 240,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ],

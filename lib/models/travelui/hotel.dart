@@ -8,7 +8,7 @@ class Hotel {
 
 final List<Hotel> hotelList = [
   Hotel(
-      imageUrl: "assets/images/a.jpg",
+      imageUrl: "assets/images/a2.jpg",
       name: "Van Ike Hotel",
       address: "Green Street ",
       price: 500),
