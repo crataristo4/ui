@@ -36,10 +36,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
   buildHeader() {
     return Container(
       height: 350,
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.2),
           borderRadius: BorderRadius.circular(40),
@@ -152,8 +149,8 @@ class _DestinationScreenState extends State<DestinationScreen> {
 
   buildActivities() {
     return Container(
-        padding: EdgeInsets.only(left: 16),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        padding: EdgeInsets.only(left: 10),
+        margin: EdgeInsets.only(top: 30),
         height: MediaQuery
             .of(context)
             .size
@@ -169,7 +166,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
             return Stack(
               children: [
                 Container(
-
                   height: 170,
                   width: MediaQuery
                       .of(context)
@@ -187,42 +183,18 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         )
                       ]),
 
-                  /* child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                    Positioned(right: 30,
-                      child: Container(
-                      height: 150,
-                      width: 120,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(40),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black26, blurRadius: 6, offset: Offset(0, 2))
-                          ]),
-                      child: Hero(
-                        tag: widget.destination.imageUrl,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(40),
-                          child: Image(
-                            image: AssetImage(widget.destination.imageUrl),
-                            fit: BoxFit.cover,
-                            filterQuality: FilterQuality.high,
-                          ),
-                        ),
-                      ),
-                  ),
-                    ),
-                    ],
-                  ),*/
+
                 ),
 
-                ///Contains the activity image stacked on the container
-                Positioned(left: 0.5,
+                ///Contains the activity details tacked on the container
+                Positioned(
+                  left: 0.5,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+
+                      ///image
                       Container(
                         margin: EdgeInsets.only(top: 20),
                         height: 150,
@@ -236,22 +208,110 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   blurRadius: 6,
                                   offset: Offset(0, 2))
                             ]),
-                        child: Hero(
-                          tag: activityList[item].imageUrl,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image(
-                              image: AssetImage(activityList[item].imageUrl),
-                              fit: BoxFit.cover,
-                              filterQuality: FilterQuality.high,
-                            ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image(
+                            image: AssetImage(activityList[item].imageUrl),
+                            fit: BoxFit.cover,
+                            filterQuality: FilterQuality.high,
                           ),
                         ),
                       ),
 
+                      ///details
+                      Container(
+                        margin: EdgeInsets.only(top: 30, left: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: 100,
+                                  child: Text(
+                                    activityList[item].name,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
+                                ),
+                                SizedBox(width: 20,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 30.0),
+                                  child: Text(
+                                    "GHC ${activityList[item].price}",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
+                                )
+
+                              ],
+                            ),
+
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(activityList[item].type),
+                            ),
+                            //Text("data"),
+                            SizedBox(height: 30,),
+                            Row(
+                              children: [
+
+                                Container(
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                      color: Colors.green.withOpacity(0.3),
+                                      borderRadius: BorderRadius.circular(16)
+                                  ),
+                                  child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        activityList[item].startTimes[0],
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color: Colors.blueGrey),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 20),
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                      color: Colors.green.withOpacity(0.3),
+                                      borderRadius: BorderRadius.circular(16)
+                                  ),
+                                  child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        activityList[item].startTimes[1],
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color: Colors.blueGrey),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 10,),
+
                     ],
                   ),
                 ),
+
+
               ],
             );
           },

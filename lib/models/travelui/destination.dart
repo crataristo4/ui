@@ -20,21 +20,21 @@ List<Activity> activityList = [
       type: "Tourist site",
       rating: 5,
       price: 250,
-      startTimes: ["8:00 am", "11:00 am"]),
+      startTimes: ["7:00 am", "11:00 pm"]),
   Activity(
       imageUrl: "assets/images/b1.jpg",
       name: "St Luke\'s Boomerang",
       type: "Fun based home",
       rating: 5,
       price: 30,
-      startTimes: ["8:00 am", "11:00 am"]),
+      startTimes: ["8:00 am", "10:30 pm"]),
   Activity(
       imageUrl: "assets/images/b.jpg",
       name: "Peter Drake\'s Yard",
       type: "Freaking jooo",
       rating: 5,
       price: 30,
-      startTimes: ["8:00 am", "11:00 am"]),
+      startTimes: ["8:00 am", "5:00 pm"]),
 ];
 
 List<Destination> destinationList = [
