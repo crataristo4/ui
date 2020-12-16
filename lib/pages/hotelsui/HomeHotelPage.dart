@@ -10,6 +10,7 @@ class HomeHotelPage extends StatefulWidget {
 
 class _HomeHotelPageState extends State<HomeHotelPage> {
   int _itemSelected = 0;
+  int _bottomNavSelected = 0;
 
   //LIST OF ICON DATA
   List<IconData> iconDataList = [
@@ -22,6 +23,26 @@ class _HomeHotelPageState extends State<HomeHotelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _bottomNavSelected,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.bed), title: SizedBox.shrink()),
+          BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.search), title: SizedBox.shrink()),
+          BottomNavigationBarItem(
+              icon: CircleAvatar(
+                radius: 20,
+                backgroundImage: AssetImage("assets/images/photo.png"),
+              ),
+              title: SizedBox.shrink()),
+        ],
+        onTap: (value) {
+          setState(() {
+            _bottomNavSelected = value;
+          });
+        },
+      ),
       body: SafeArea(
           child: ListView(
         children: [
@@ -33,18 +54,18 @@ class _HomeHotelPageState extends State<HomeHotelPage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: iconDataList
                 .asMap()
-                .entries
-                .map((e) => buildIconsSection(e.key))
-                .toList(),
-          ),
-          SizedBox(height: 8),
-          TopDestination(),
-          SizedBox(
-            height: 8,
-          ),
-          HotelItems(),
-        ],
-      )),
+                    .entries
+                    .map((e) => buildIconsSection(e.key))
+                    .toList(),
+              ),
+              SizedBox(height: 8),
+              TopDestination(),
+              SizedBox(
+                height: 8,
+              ),
+              HotelItems(),
+            ],
+          )),
     );
   }
 
