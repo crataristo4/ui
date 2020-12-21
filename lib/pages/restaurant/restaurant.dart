@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui/pages/restaurant/secondpage.dart';
+import 'package:ui/pages/restaurant/thirdpage.dart';
 
 class Restaurant extends StatefulWidget {
   @override
@@ -175,33 +176,49 @@ class _RestaurantState extends State<Restaurant> {
   }
 
   buildCardItem(context, String item1, String item2, Color color) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      width: 350,
-      height: 150,
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(12)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 14.0, left: 14, right: 14),
-            child: Text(
-              item1,
-              style: TextStyle(fontSize: 36, color: Colors.white),
+    return GestureDetector(
+      onTap: () {
+        //Switch between the various colors and open respective page
+        /*  if(color == Colors.blue){
+          print(item1);
+        }else if(color == Colors.deepOrange){
+          print(item1);
+        }else{
+          print(item1);
+        }*/
+
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ThirdPage();
+        }));
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        width: 350,
+        height: 150,
+        decoration: BoxDecoration(
+            color: color, borderRadius: BorderRadius.circular(12)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 20,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Text(
-              item2,
-              style: TextStyle(fontSize: 18, color: Colors.white),
+            Padding(
+              padding: const EdgeInsets.only(top: 14.0, left: 14, right: 14),
+              child: Text(
+                item1,
+                style: TextStyle(fontSize: 36, color: Colors.white),
+              ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Text(
+                item2,
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
