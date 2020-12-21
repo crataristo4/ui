@@ -47,10 +47,9 @@ class HomeButtons extends StatelessWidget {
           MyButton().buildButton(
               "Suggestions ui", Colors.white, Colors.deepOrange,
                   () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => FirstPage()));
-              }),
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => FirstPageSuggestion()));
+          }),
         ],
       ),
     );
