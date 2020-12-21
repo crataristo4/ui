@@ -7,6 +7,8 @@ import 'package:ui/widgets/button.dart';
 
 import 'file:///D:/lenovo/talent_ui/lib/pages/travelui/home.dart';
 
+import 'suggestions/firstpage.dart';
+
 class HomeButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -36,10 +38,19 @@ class HomeButtons extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => HomeHotelPage()));
           }),
           MyButton().buildButton("Restaurant ui", Colors.white, Colors.black,
-              () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Restaurant()));
-          }),
+                  () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Restaurant()));
+              }),
+
+          MyButton().buildButton(
+              "Suggestions ui", Colors.white, Colors.deepOrange,
+                  () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FirstPage()));
+              }),
         ],
       ),
     );

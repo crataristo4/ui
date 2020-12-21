@@ -1,4 +1,6 @@
 class Constants {
+  static get suggest => "Any suggestions for future training sessions?";
+
   static get dummy =>
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
