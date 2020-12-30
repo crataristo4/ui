@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ui/pages/nutritionui/second_page.dart';
 
 class FirstPage extends StatefulWidget {
   @override
@@ -164,7 +165,16 @@ class _FirstPageState extends State<FirstPage> {
     return Padding(
       padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 15),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => DetailsPage(
+                        heroTag: imgPath,
+                        foodName: foodName,
+                        foodPrice: foodPrice,
+                      )));
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
