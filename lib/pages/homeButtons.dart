@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ui/pages/hotelsui/HomeHotelPage.dart';
 import 'package:ui/pages/petsui/petsHomePage.dart';
 import 'package:ui/pages/restaurant/restaurant.dart';
+import 'package:ui/pages/speedcode/inspirationapp.dart';
 import 'package:ui/widgets/button.dart';
 
 import 'file:///D:/lenovo/talent_ui/lib/pages/travelui/home.dart';
@@ -51,6 +52,11 @@ class HomeButtons extends StatelessWidget {
           MyButton().buildButton("Nutrition ui", Colors.black, Colors.grey, () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => FirstPage()));
+          }),
+          MyButton().buildButton(
+              "Inspiration app", Colors.white, Colors.blueGrey, () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => InspirationApp()));
           }),
         ],
       ),
