@@ -192,7 +192,27 @@ class _DetailsPageState extends State<DetailsPage> {
                             buildInfoCard("Krak", "cool", "45"),
                           ],
                         ),
-                      )
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 32),
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
+                                bottomLeft: Radius.circular(32),
+                                bottomRight: Radius.circular(32))),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(24.0),
+                            child: Text(
+                              "Check out",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 24),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ))
             ],
