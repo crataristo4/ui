@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui/pages/restaurant/secondpage.dart';
@@ -242,84 +243,90 @@ class _RestaurantState extends State<Restaurant> {
                 borderRadius: BorderRadius.circular(16),
                 child: Image.asset(
                   "assets/images/b2.png",
-                  height: 150,
-                  width: 150,
+                  height: 120,
+                  width: 120,
                 ),
               ),
             ),
             Container(
                 width: 150,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.teal,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          // margin: EdgeInsets.only(top: 15),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8.0, top: 8, bottom: 8),
-                                child: Text(
-                                  "Popular",
-                                  style: TextStyle(color: Colors.white),
+                child: Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.teal,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            // margin: EdgeInsets.only(top: 15),
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8.0, top: 8, bottom: 8),
+                                  child: Text(
+                                    "Popular",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 8.0, right: 8),
-                                child: Icon(
-                                  Icons.thumb_up,
-                                  color: Colors.white,
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8.0, right: 8),
+                                  child: Icon(
+                                    Icons.thumb_up,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                        Icon(
-                          Icons.favorite_border,
-                          color: Colors.red,
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Burger King",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                    ),
-                    Text(
-                      "4.5/5",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.deepOrange),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 14.0),
-                      child: Text(
-                        "Just some dummy data here",
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Icon(
+                              Icons.favorite_border,
+                              color: Colors.red,
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Burger King",
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.grey),
                       ),
-                    ),
-                  ],
+                      Text(
+                        "4.5/5",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.deepOrange),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4.0, bottom: 4),
+                        child: Text(
+                          "Just some dummy data here",
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                        ),
+                      ),
+                    ],
+                  ),
                 ))
           ],
         ),

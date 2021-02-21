@@ -6,10 +6,9 @@ import 'package:ui/pages/restaurant/restaurant.dart';
 import 'package:ui/pages/speedcode/inspirationapp.dart';
 import 'package:ui/widgets/button.dart';
 
-import 'file:///D:/lenovo/talent_ui/lib/pages/travelui/home.dart';
-
 import 'nutritionui/first_page.dart';
 import 'suggestions/firstpage.dart';
+import 'travelui/home.dart';
 
 class HomeButtons extends StatelessWidget {
   @override
@@ -23,10 +22,8 @@ class HomeButtons extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-
       body: ListView(
         children: [
-
           MyButton().buildButton("Talent ui", Colors.white, Colors.green, () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => HomePage()));

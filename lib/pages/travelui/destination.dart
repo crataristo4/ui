@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui/models/travelui/destination.dart';
@@ -17,20 +18,22 @@ class _DestinationScreenState extends State<DestinationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        ///Stack contains images and location details of the place selected
-        Stack(
-          children: [
-            buildHeader(),
-            buildTopStack(),
-            buildLocationItems(),
-            buildSingleFreak(),
-          ],
-        ),
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          ///Stack contains images and location details of the place selected
+          Stack(
+            children: [
+              buildHeader(),
+              buildTopStack(),
+              buildLocationItems(),
+              buildSingleFreak(),
+            ],
+          ),
 
-        buildActivities(),
-      ],
+          buildActivities(),
+        ],
+      ),
     ));
   }
 
@@ -176,7 +179,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       ]),
                 ),
 
-                ///Contains the activity details tacked on the container
+                ///Contains the activity details stacked on the container
                 Positioned(
                   left: 0.5,
                   child: Row(
@@ -214,10 +217,9 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-
                                 ///activity name
                                 Container(
                                   width: 100,
@@ -230,19 +232,13 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                         fontSize: 16),
                                   ),
                                 ),
-                                SizedBox(
-                                  width: 20,
-                                ),
 
                                 ///price
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 30.0),
-                                  child: Text(
-                                    "GHC ${activityList[item].price}",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16),
-                                  ),
+                                Text(
+                                  "GHC ${activityList[item].price}",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
                                 )
                               ],
                             ),
@@ -256,24 +252,30 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            RatingBar.builder(
-                              initialRating: activityList[item].rating
-                                  .toDouble(),
-                              minRating: 1,
-                              direction: Axis.horizontal,
-                              allowHalfRating: false,
-                              itemCount: 5,
-                              itemPadding:
-                              EdgeInsets.symmetric(horizontal: 2.0),
-                              itemBuilder: (context, _) =>
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
+                            Container(
+                              margin: EdgeInsets.symmetric(vertical: 5),
+                              child: RatingBar.builder(
+                                onRatingUpdate: (val) {},
+                                initialRating:
+                                    activityList[item].rating.toDouble(),
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: false,
+                                itemSize: 20,
+                                itemCount: 5,
+                                itemPadding:
+                                    EdgeInsets.symmetric(horizontal: 2.0),
+                                itemBuilder: (context, _) => Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                              ),
                             ),
 
                             ///start and end time
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Column(
                                   children: [
@@ -282,14 +284,15 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Colors.black,
+                                          fontStyle: FontStyle.italic,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Container(
-                                      width: 100,
+                                      width: 80,
                                       decoration: BoxDecoration(
                                           color: Colors.green.withOpacity(0.3),
                                           borderRadius:
-                                          BorderRadius.circular(16)),
+                                              BorderRadius.circular(16)),
                                       child: Center(
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
@@ -312,16 +315,17 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Colors.black,
+                                          fontStyle: FontStyle.italic,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Container(
                                       margin:
-                                      EdgeInsets.symmetric(horizontal: 20),
-                                      width: 100,
+                                          EdgeInsets.symmetric(horizontal: 20),
+                                      width: 80,
                                       decoration: BoxDecoration(
                                           color: Colors.green.withOpacity(0.3),
                                           borderRadius:
-                                          BorderRadius.circular(16)),
+                                              BorderRadius.circular(16)),
                                       child: Center(
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
@@ -355,6 +359,4 @@ class _DestinationScreenState extends State<DestinationScreen> {
           scrollDirection: Axis.vertical,
         ));
   }
-
-  buildRating(int rating) {}
 }

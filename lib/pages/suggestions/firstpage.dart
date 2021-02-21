@@ -156,17 +156,16 @@ class FirstPageSuggestion extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  left: 150,
-                  bottom: 570,
-                  child: Container(
-                    child: IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.facebookMessenger,
-                          size: 64,
-                          color: Colors.deepOrange,
-                        ),
-                        onPressed: null),
-                  ),
+                  left: MediaQuery.of(context).size.width / 2.5,
+                  //bottom: 500,
+                  top: 160,
+                  child: IconButton(
+                      icon: Icon(
+                        FontAwesomeIcons.facebookMessenger,
+                        size: 64,
+                        color: Colors.deepOrange,
+                      ),
+                      onPressed: null),
                 ),
               ],
             ),

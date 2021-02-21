@@ -37,30 +37,28 @@ class SecondPageSuggestion extends StatelessWidget {
                           topRight: Radius.circular(64))),
                 ),
                 Positioned(
-                  left: 150,
-                  bottom: 570,
-                  child: Container(
-                    child: IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.facebookMessenger,
-                          size: 64,
-                          color: Colors.deepOrange,
-                        ),
-                        onPressed: null),
-                  ),
+                  left: MediaQuery.of(context).size.width / 2.5,
+                  top: 160,
+                  child: IconButton(
+                      icon: Icon(
+                        FontAwesomeIcons.facebookMessenger,
+                        size: 64,
+                        color: Colors.deepOrange,
+                      ),
+                      onPressed: null),
                 ),
               ],
             ),
             Container(
-              margin: EdgeInsets.only(top: 300, left: 16, right: 16),
-              height: 300,
+              margin: EdgeInsets.only(top: 250, left: 16, right: 16),
+              height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Container(
                       child: TextFormField(
-                        maxLines: 3,
+                        maxLines: 10,
                         style: TextStyle(fontSize: 24),
                         decoration: InputDecoration(
                             labelText: "Enter your suggestion",

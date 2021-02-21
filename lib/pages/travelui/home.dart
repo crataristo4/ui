@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -64,44 +63,45 @@ class _HomePageState extends State<HomePage> {
                         blurRadius: 1.5,
                       )
                     ]),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Stack(
-                      children: [
-                        Container(
-                          child: Text(
-                            "Network",
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                child: Expanded(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Stack(
+                        children: [
+                          Container(
+                            child: Text(
+                              "Network",
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.grey),
+                            ),
+                            margin: EdgeInsets.fromLTRB(24, 16, 0, 4),
                           ),
-                          margin: EdgeInsets.fromLTRB(24, 16, 0, 4),
-                        ),
-                        Container(
-                          child: Text(
-                            "300",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400, fontSize: 32),
+                          Container(
+                            child: Text(
+                              "300",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400, fontSize: 32),
+                            ),
+                            margin: EdgeInsets.fromLTRB(30, 32, 0, 8),
                           ),
-                          margin: EdgeInsets.fromLTRB(30, 32, 0, 8),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 100,
-                    ),
-                    Container(
-                      width: 120,
-                      height: 60,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.greenAccent[100].withOpacity(0.5)),
-                      child: Center(
-                          child: Text(
-                        "Chat me",
-                        style: TextStyle(color: Colors.green, fontSize: 18),
-                      )),
-                    ),
-                  ],
+                        ],
+                      ),
+                      Container(
+                        width: 120,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: Colors.greenAccent[100].withOpacity(0.5)),
+                        child: Center(
+                            child: Text(
+                          "Chat me",
+                          style: TextStyle(color: Colors.green, fontSize: 18),
+                        )),
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],
@@ -161,7 +161,6 @@ class _HomePageState extends State<HomePage> {
               buildCardItems("Zak", "Online", 8),
             ],
           ),
-
         ],
       ),
     );
@@ -197,7 +196,7 @@ class _HomePageState extends State<HomePage> {
             height: 50,
             width: double.infinity,
             decoration: BoxDecoration(
-                color:  availability == "Online" ? Colors.green : Colors.grey,
+                color: availability == "Online" ? Colors.green : Colors.grey,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(8))),
